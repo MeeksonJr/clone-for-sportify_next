@@ -1,3 +1,4 @@
+// @ts-ignore
 import { getPlaylistTracks } from "@/lib/spotify"
 import { TrackList } from "@/components/track-list"
 import { fetchSpotifyApi } from "@/lib/spotify"

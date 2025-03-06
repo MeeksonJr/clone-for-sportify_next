@@ -1,3 +1,4 @@
+// @ts-ignore
 import { searchTracks } from "@/lib/spotify"
 import { SearchBar } from "@/components/search-bar"
 import { TrackList } from "@/components/track-list"

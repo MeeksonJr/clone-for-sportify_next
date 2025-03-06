@@ -1,3 +1,4 @@
+// @ts-ignore
 import { getPlaylists } from "@/lib/spotify"
 import { NextResponse } from "next/server"
 

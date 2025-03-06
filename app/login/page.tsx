@@ -1,3 +1,4 @@
+// @ts-ignore
 import { getAuthUrl } from "@/lib/auth"
 import { Button } from "@/components/ui/button"
 

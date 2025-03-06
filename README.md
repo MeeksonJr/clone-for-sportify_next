@@ -1,104 +1,298 @@
-## PlanSmart AI
+Here’s the updated **README.md** file in one clean, copyable format:
 
-PlanSmart AI is an innovative web application that leverages artificial intelligence to generate personalized, actionable plans based on users' goals, resources, and constraints. This project aims to revolutionize the way individuals and businesses approach planning and decision-making.
+```md
+# SoundBite: Spotify-Powered Music Discovery App
+
+## Table of Contents
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Tech Stack](#tech-stack)
+4. [Prerequisites](#prerequisites)
+5. [Setup and Installation](#setup-and-installation)
+6. [Project Structure](#project-structure)
+7. [Key Components](#key-components)
+8. [Usage](#usage)
+9. [API Routes](#api-routes)
+10. [Authentication](#authentication)
+11. [Styling](#styling)
+12. [Error Handling](#error-handling)
+13. [Testing](#testing)
+14. [Deployment](#deployment)
+15. [Contributing](#contributing)
+16. [License](#license)
+17. [Acknowledgements](#acknowledgements)
+18. [Support](#support)
+
+---
+
+## Overview
+
+SoundBite is a web application built with **Next.js** that leverages the **Spotify API** to provide users with a rich music discovery experience. This app allows users to **search for tracks**, **view artist details**, **explore new releases**, and **play music previews**. For authenticated users, it offers **full track playback** using the **Spotify Web Playback SDK**.
+
+---
 
 ## Features
 
-- AI-powered plan generation using OpenAI's GPT-4 model
-- User-friendly interface for inputting goals, resources, and constraints
-- Dynamic dashboard for tracking multiple plans and tasks
-- Real-time progress monitoring and task management
-- Responsive design for seamless use across devices
-- Secure user authentication and data protection
+- **Search Functionality**
+  - Search for tracks, artists, and albums across Spotify's vast library.
+  - Real-time search suggestions.
+
+- **Artist Pages**
+  - Detailed artist profiles with top tracks, albums, and related artists.
+
+- **Album Pages**
+  - Full track listings and release details.
+
+- **New Releases**
+  - Showcase of the latest album drops.
+
+- **Music Playback**
+  - Full track playback for logged-in users, 30-second previews for others.
+
+- **User Authentication**
+  - Spotify OAuth integration for personalized experiences.
+
+- **Responsive Design**
+  - Fully optimized for mobile and desktop.
+
+- **Accessibility**
+  - Implemented with web accessibility standards.
+
+---
 
 ## Tech Stack
 
-- Next.js 13+ (App Router)
-- React
-- TypeScript
-- Tailwind CSS
-- Drizzle ORM
-- Neon Database (PostgreSQL)
-- OpenAI API
-- Vercel (for deployment)
-- Clerk Auth (future use)
+- **Frontend**
+  - Next.js 13 with App Router
+  - React 18
+  - TypeScript
 
-## Getting Started
+- **Styling**
+  - Tailwind CSS
+  - CSS Modules
 
-### Prerequisites
+- **UI Components**
+  - shadcn/ui
 
-- Node.js 14.x or later
-- npm or yarn
-- A Neon Database account
-- An OpenAI API key
-- Clerk API keys (future use)
+- **State Management**
+  - React Context API
+  - React Query
 
-### Installation
+- **API Integration**
+  - Spotify Web API
+  - Next.js API Routes
 
-Clone the repository:
+- **Authentication**
+  - Spotify OAuth
+  - NextAuth.js
 
-```bash
-git clone https://github.com/MeeksonJr/PlanSmart-ai.git
-cd plansmart-ai
-Install dependencies:
+- **Testing**
+  - Jest
+  - React Testing Library
 
-npm install
-   or
-yarn install
+- **Linting & Formatting**
+  - ESLint
+  - Prettier
+
+---
+
+## Prerequisites
+
+Ensure you have:
+
+- **Node.js** (v14+)
+- **npm** (v6+) or **yarn** (v1.22+)
+- A **Spotify Developer account**
+- **Git** installed
+
+---
+
+## Setup and Installation
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/MeeksonJr/soundbite.git
+   cd soundbite
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Create a `.env.local` file and add:
+
+   ```env
+   SPOTIFY_CLIENT_ID=your_spotify_client_id
+   SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+   NEXT_PUBLIC_BASE_URL=https://api.spotify.com.
+   SPOTIFY_REDIRECT_URI=https://open.spotify.com/
+   ```
+
+4. Start the development server:
+
+   ```sh
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open **[http://localhost:3000](http://localhost:3000)** in your browser.
+
+---
+
+## Project Structure
+
+```
+.
+├── app/                # Next.js app directory
+│   ├── api/            # API routes
+│   ├── ....            # Folders of content
+│   ├── page.tsx        # Page component
+│   ├── layout.tsx      # Root layout
+│   ├── globals.css     # Global CSS file
+├── |components/        # Reusable components
+├── |hooks/             # Custom React hooks
+├── |lib/               # lib functions
+├── public/             # Static assets
+├── .env.local          # Environment variables
+├── tsconfig.json       # TypeScript configuration
+├── next.config.js      # Next.js configuration
+├── package.json        # Project dependencies and scripts
 ```
 
-## Set up your environment variables
+---
+
+## Key Components
+
+- **`SpotifyPlayer.tsx`** - Handles music playback.
+- **`SearchBar.tsx`** - Implements search with auto-suggestions.
+- **`ArtistCard.tsx`** - Displays artist details.
+- **`TrackList.tsx`** - Renders track lists with playback controls.
+
+---
+
+## Usage
+
+- **Search for music**: Enter a track, artist, or album in the search bar.
+- **View artist details**: Click an artist for their top songs, albums, and related artists.
+- **Play tracks**: Click play on a track.
+- **Login with Spotify**: Sign in for full playback features.
+
+---
+
+## API Routes
+
+- **`/api/spotify/auth`** - Handles Spotify OAuth authentication.
+- **`/api/spotify/search`** - Fetches search results from Spotify API.
+- **`/api/spotify/artist/[id]`** - Retrieves artist details.
+- **`/api/spotify/playlist/[id]`** - Fetches a specific playlist.
+
+---
+
+## Authentication
+
+- Uses **Spotify OAuth 2.0** for user login.
+- Tokens are stored in **cookies** for authentication.
+- Full track playback is enabled using the **Spotify Web Playback SDK**.
+
+---
+
+## Styling
+
+- **Tailwind CSS** for styling.
+- **Mobile-first design** approach.
+- **Dark mode support**.
+
+---
+
+## Error Handling
+
+- Friendly **error messages** if something goes wrong.
+- Uses **React Error Boundaries** for unexpected failures.
+- Handles **Spotify API rate limits** gracefully.
+
+---
+
+## Testing
+
+Run tests using:
+
+```sh
+npm test
+# or
+yarn test
 ```
-Create a .env.local file in the root of the project.
-Add the following variables:
-bash
-Copy code
-NEXT_PUBLIC_OPENAI_API_KEY=your-openai-api-key
-NEXT_PUBLIC_NEON_DB_URL=your-neon-database-url
-If you plan to use Clerk for authentication in the future, also add:
 
-bash
-Copy code
-CLERK_FRONTEND_API=your-clerk-frontend-api
-CLERK_API_KEY=your-clerk-api-key
-Run the development server:
-```
-## npm run dev or yarn dev
-This will start the application on http://localhost:3000.
-
-## Database Setup
-PlanSmart AI uses Neon (PostgreSQL) as the database backend. Follow the instructions below to set up your Neon Database:
-- Create a Neon account if you don't have one: Neon Database.
-- Create a new Neon database and note the connection URL.
-- Set up the database schema using the provided migration scripts (or manually, depending on your preferences).
-- Authentication Setup
-- PlanSmart AI includes user authentication with Clerk (for future implementation). For now, the app functions without authentication, but Clerk can be integrated by following these steps:
-
-## Sign up for Clerk: Clerk.
-- After setting up Clerk, create an API key and configure it in your .env.local file.
-- Wrap your pages requiring authentication in the <ClerkProvider /> component (refer to the example in the code for how to implement this).
+---
 
 ## Deployment
-- The application is deployed on Vercel for seamless hosting. If you wish to deploy it yourself, follow these steps:
-- Push your code to your GitHub repository.
-- Connect your GitHub repository to Vercel and follow the deployment steps.
-- Set up your environment variables in the Vercel dashboard under "Settings" → "Environment Variables."
-- Once deployed, your app will be accessible on a public URL provided by Vercel.
+
+Deploy SoundBite to **Vercel**:
+
+1. Install the **Vercel CLI**:
+
+   ```sh
+   npm install -g vercel
+   ```
+
+2. Deploy:
+
+   ```sh
+   vercel
+   ```
+
+---
 
 ## Contributing
-- We welcome contributions to PlanSmart AI! To contribute, please follow these steps:
 
-## Fork the repository.
-- Create a new branch (git checkout -b feature-name).
-Make your changes.
-- Commit your changes (git commit -am 'Add new feature').
-- Push to the branch (git push origin feature-name).
-Open a pull request.
-- Please ensure your code follows the existing code style and includes tests where appropriate.
+Contributions are welcome! Follow these steps:
 
-# License
-This project is licensed under the MIT License - see the LICENSE file for details.
+1. Fork the repo.
+2. Create a new branch:
 
-# Acknowledgments
-- Special thanks to OpenAI for providing the GPT-4 model API.
-- Thanks to Clerk for user authentication (future integration).
+   ```sh
+   git checkout -b feature-name
+   ```
+
+3. Commit your changes:
+
+   ```sh
+   git commit -m "Add new feature"
+   ```
+
+4. Push the branch:
+
+   ```sh
+   git push origin feature-name
+   ```
+
+5. Open a **Pull Request**.
+
+---
+
+## License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## Acknowledgements
+
+- **Spotify** for their API.
+- Inspired by various **music discovery platforms**.
+- Built using **Next.js**, **React**, and **TypeScript**.
+
+---
+
+## Support
+
+For any issues, open an issue on **[GitHub](https://github.com/MeeksonJr/soundbite/issues)**.
+
+---
+
+🚀 **Happy Listening!** 🎵

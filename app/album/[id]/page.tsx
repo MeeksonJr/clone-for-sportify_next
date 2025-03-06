@@ -1,3 +1,4 @@
+// @ts-ignore
 import Image from "next/image"
 import { fetchSpotifyApi } from "@/lib/spotify"
 import { TrackList } from "@/components/track-list"

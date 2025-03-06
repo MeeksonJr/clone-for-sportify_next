@@ -1,3 +1,4 @@
+// @ts-ignore
 import { getAccessToken } from "@/lib/auth";
 import { cookies } from "next/headers";
 

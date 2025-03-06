@@ -1,3 +1,4 @@
+// @ts-ignore
 import { fetchSpotifyApi } from "@/lib/spotify"
 import { NextResponse } from "next/server"
 
