@@ -6,7 +6,7 @@ import "./globals.css"
 import Link from "next/link"
 import { Music } from "lucide-react"
 // @ts-ignore
-import { SpotifyPlayer } from "@/components/spotify-player"
+// import { SpotifyPlayer } from "@/components/spotify-player"
 import { cookies } from "next/headers"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -58,7 +58,7 @@ export default async function RootLayout({
             <p className="text-sm text-muted-foreground">Powered by Spotify API</p>
           </div>
         </footer>
-        {accessToken && <SpotifyPlayer accessToken={accessToken} />}
+        {/* {accessToken && <SpotifyPlayer accessToken={accessToken} />} */}
       </body>
     </html>
   )
